@@ -2,6 +2,8 @@ import { DecoratorFn } from '@storybook/react'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from '../src/styles/theme'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
+import { withDesign } from 'storybook-addon-designs'
+import { BrowserRouter } from 'react-router-dom'
 
 const withTheme: DecoratorFn = (StoryFn, context) => {
   const theme = context.parameters.theme || context.globals.theme
@@ -14,5 +16,10 @@ const withTheme: DecoratorFn = (StoryFn, context) => {
   )
 }
 
+export const withRouter: DecoratorFn = (StoryFn) => (
+  <BrowserRouter>
+    <StoryFn />
+  </BrowserRouter>
+)
 // export all decorators that should be globally applied in an array
-export const globalDecorators = [withTheme]
+export const globalDecorators = [withTheme, withDesign, withRouter]
