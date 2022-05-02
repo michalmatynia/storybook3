@@ -48,4 +48,16 @@ export const globalTypes = {
       showName: true,
     },
   },
+  test: {
+    name: 'Test',
+    description: 'Global theme for components',
+    defaultValue: 'bb',
+    toolbar: {
+      icon: 'circlehollow',
+      // Array of plain string values or MenuItem shape (see below)
+      items: ['bb', 'aa'],
+      // Property that specifies if the name of the item will be displayed
+      showName: true,
+    },
+  },
 }
